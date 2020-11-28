@@ -38,9 +38,18 @@ namespace NumberGuesser
                         continue;
                     }
 
-                    guess = Int32.Parse(input); 
-                    Console.WriteLine("Incorrect! Try again!");
+                    guess = Int32.Parse(input);
+                    if (guess != hiddenNumber)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Incorrect! Try again!");
+                        Console.ResetColor();
+                    }
                 }
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("CORRECT! That's right! You guessed the number!");
+                Console.ResetColor();
 
 
                 /* Replayability
@@ -74,7 +83,7 @@ namespace NumberGuesser
                 string appAuthor = "Thomas Nguyen - github.com/nguyentthomas";
 
                 //Output
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine($"{appName}: Version {appVersion} by {appAuthor}");
                 Console.ResetColor();
             }
